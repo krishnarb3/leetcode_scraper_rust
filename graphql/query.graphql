@@ -1,0 +1,24 @@
+query getCompanyTag($slug: String!) {
+    companyTag(slug: $slug) {
+        name
+        questions {
+            ...questionFields
+        }
+    }
+}
+
+fragment questionFields on QuestionNode {
+    status
+    questionId
+    title
+    titleSlug
+    difficulty
+    topicTags {
+        ...topicTagNode
+    }
+}
+
+fragment topicTagNode on TopicTagNode {
+    name
+    slug
+}

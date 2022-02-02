@@ -1,0 +1,26 @@
+schema {
+    query: Query
+}
+
+type Query {
+    companyTag(slug: String!): CompanyTag
+}
+
+type CompanyTag {
+    name: String!
+    questions: [QuestionNode]!
+}
+
+type QuestionNode {
+    status: String
+    questionId: String!
+    title: String!
+    titleSlug: String!
+    difficulty: String!
+    topicTags: [TopicTagNode]!
+}
+
+type TopicTagNode {
+    name: String!
+    slug: String!
+}
